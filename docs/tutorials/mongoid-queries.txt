@@ -1060,6 +1060,19 @@ To use the cached results, call ``all.to_a.first`` on the model class.
 
 .. _additional-query-methods:
 
+Query Cache and System Collections
+``````````````````````````````````
+MongoDB stores system information in collections that use the <database>.system.*
+namespace, which MongoDB reserves for internal use. These are called
+system collections.
+
+Neither the driver query cache nor the legacy query cache supports caching results
+from system collections. Every query performed against a system collection will
+query the database.
+
+To read more about system collections, please see the
+:manual:`MongoDB documentation</reference/system-collections/>`.
+
 Additional Query Methods
 ------------------------
 
